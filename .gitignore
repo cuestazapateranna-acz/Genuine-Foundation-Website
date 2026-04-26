@@ -1,0 +1,12 @@
+# System
+.DS_Store
+
+# Internal agent and workflow files
+CLAUDE.md
+CLAUDE Website Rules.md
+.claude/
+
+# Internal documents not used by the website
+The Genuine Foundation Brand Guidelines.png
+design-audit.md.pdf
+GENUINE FOUNDATION — WEBSITE COPY.pdf

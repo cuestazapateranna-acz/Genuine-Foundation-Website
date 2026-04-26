@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Genuine Cup 2026 — Six days of professional team sport built around and for the IDD community. 50 countries, 50 teams. July 27 – August 1, 2026, Houston, Texas.">
+  <title>Genuine Cup — Genuine Foundation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Genuine Cup accent: teal / green */
+    :root {
+      --accent:      #2EC4B6;
+      --accent-glow: rgba(46,196,182,.22);
+      --accent-soft: rgba(46,196,182,.08);
+    }
+
+    /* hero branch logo */
+    .hero__branch-logo {
+      position: absolute;
+      right: 6%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(140px, 18vw, 240px);
+      opacity: .92;
+      pointer-events: none;
+      z-index: 2;
+    }
+    @media (max-width: 768px) {
+      .hero__branch-logo { width: 120px; right: 4%; top: auto; bottom: 5rem; transform: none; }
+    }
+    @media (max-width: 480px) { .hero__branch-logo { display: none; } }
+
+    /* carousel */
+    .carousel { position: relative; overflow: hidden; border-radius: 16px; }
+    .carousel__track { display: flex; transition: transform .45s cubic-bezier(.4,0,.2,1); will-change: transform; }
+    .carousel__slide { min-width: 100%; }
+    .carousel__slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .carousel__btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(11,22,40,.55); backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.15); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 3; transition: background .2s;
+    }
+    .carousel__btn:hover { background: rgba(46,196,182,.6); }
+    .carousel__btn--prev { left: .75rem; }
+    .carousel__btn--next { right: .75rem; }
+    .carousel__dots {
+      position: absolute; bottom: .75rem; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px; z-index: 3;
+    }
+    .carousel__dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,.4); border: none; cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .carousel__dot.active { background: #fff; transform: scale(1.3); }
+
+    /* footer social */
+    .footer__social { display: flex; gap: var(--space-md); margin-top: var(--space-lg); }
+    .footer__social-link {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.65); transition: background .2s, color .2s;
+    }
+    .footer__social-link:hover { background: rgba(255,255,255,.15); color: #fff; }
+  </style>
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- ── NAVBAR ──────────────────────────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <img src="The Genuine Foundation Logo White Words.png" alt="Genuine Foundation">
+      </a>
+      <ul class="navbar__links">
+        <li><a href="hope-and-opportunity.html">Hope &amp; Opportunity</a></li>
+        <li><a href="genuine-connect.html">Genuine Connect</a></li>
+        <li><a href="genuine-cup.html" class="active">Genuine Cup</a></li>
+      </ul>
+      <div class="navbar__actions">
+        <a href="#get-involved" class="btn btn-accent btn-sm">Get Involved</a>
+        <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── MOBILE MENU ─────────────────────────────────────── -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+    <button class="mobile-menu__close" id="mobileClose" aria-label="Close menu">✕</button>
+    <ul class="mobile-menu__links">
+      <li><a href="hope-and-opportunity.html">Hope &amp; Opportunity</a></li>
+      <li><a href="genuine-connect.html">Genuine Connect</a></li>
+      <li><a href="genuine-cup.html" style="color:#fff;">Genuine Cup</a></li>
+      <li><a href="#get-involved" class="mobile-cta" style="color:var(--accent);">Get Involved →</a></li>
+    </ul>
+  </div>
+
+  <!-- ── HERO ────────────────────────────────────────────── -->
+  <section class="hero hero--sub">
+    <div class="orb" style="width:700px;height:700px;top:-160px;right:4%;background:radial-gradient(circle,rgba(46,196,182,.3),transparent 70%);--dur:24s;"></div>
+    <div class="orb" style="width:500px;height:500px;bottom:-80px;left:-80px;background:radial-gradient(circle,rgba(46,196,182,.2),transparent 70%);--dur:20s;--delay:-8s;"></div>
+    <div class="orb" style="width:320px;height:320px;top:40%;left:35%;background:radial-gradient(circle,rgba(46,196,182,.12),transparent 70%);--dur:16s;--delay:-4s;"></div>
+
+    <div class="hero__noise"></div>
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content">
+      <div class="hero__tag ha-d1"><span>Genuine Cup 2026</span></div>
+      <h1 class="f-h1 hero__heading ha-d2">50 Countries,<br>50 Teams —<br>Inclusion in Motion.</h1>
+      <p class="hero__date ha-d3">July 27 – August 1, 2026 &nbsp;·&nbsp; Houston, Texas</p>
+      <p class="hero__sub ha-d3">
+        Six days of professional team sport built around and for the IDD community. Where inclusion doesn't just get talked about — it gets played out on the field, every single day.
+      </p>
+      <div class="hero__ctas ha-d4">
+        <a href="#the-event" class="btn btn-ghost">About the Event</a>
+      </div>
+    </div>
+
+    <div class="hero__accent-rule"></div>
+    <img class="hero__branch-logo" src="GWC%20Logo%20Horizontal%20Inverted.png" alt="Genuine World Cup">
+  </section>
+
+  <!-- ── THE EVENT ────────────────────────────────────────── -->
+  <div class="section-wrap--white" id="the-event">
+    <div class="section">
+      <div class="split">
+        <div class="reveal">
+          <div class="eyebrow"><span>The Event</span></div>
+          <h2 class="f-h2 section-heading">A real competition. Real athletes. Real dignity.</h2>
+          <p class="section-sub" style="margin-bottom:var(--space-3xl);">
+            The Genuine Cup is the heartbeat of everything the Genuine Foundation builds toward. A multi-day sporting competition that brings athletes with intellectual and developmental disabilities into a real, professional team sport environment — with the structure, the visibility, and the dignity that every athlete deserves.
+          </p>
+          <p class="section-sub" style="margin-bottom:var(--space-4xl);">
+            This is not a charitable program. It is a real competition. And the athletes at its center deserve to be treated that way.
+          </p>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+            <a href="https://www.youtube.com/watch?v=amDkI06H3bA" target="_blank" rel="noopener" class="btn btn-accent">Genuine Cup 2025 →</a>
+            <a href="https://www.youtube.com/watch?v=GwhrtKBDNdU" target="_blank" rel="noopener" class="btn btn-ghost">Genuine Cup 2024 →</a>
+          </div>
+        </div>
+
+        <div class="reveal d1">
+          <div class="carousel" style="aspect-ratio:4/5;" data-carousel>
+            <div class="carousel__track">
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I5554.jpg" alt="Genuine Cup 1"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I5628.jpg" alt="Genuine Cup 2"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I5639.jpg" alt="Genuine Cup 3"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I5657.jpg" alt="Genuine Cup 4"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I6341.jpg" alt="Genuine Cup 5"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I6360.jpg" alt="Genuine Cup 6"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I6457.jpg" alt="Genuine Cup 7"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I6538.jpg" alt="Genuine Cup 8"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I6580.jpg" alt="Genuine Cup 9"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I6622.jpg" alt="Genuine Cup 10"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I6637.jpg" alt="Genuine Cup 11"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I6694.jpg" alt="Genuine Cup 12"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/A56I6814.jpg" alt="Genuine Cup 13"></div>
+              <div class="carousel__slide"><img src="Genuine%20Cup%20Pictures/Copy%20of%20A56I6796.jpg" alt="Genuine Cup 14"></div>
+            </div>
+            <button class="carousel__btn carousel__btn--prev" aria-label="Previous">&#8592;</button>
+            <button class="carousel__btn carousel__btn--next" aria-label="Next">&#8594;</button>
+            <div class="carousel__dots"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sep">
+
+  <!-- ── WHO GETS INVOLVED ────────────────────────────────── -->
+  <div class="section-wrap--light">
+    <div class="section">
+      <div class="section-header--center reveal">
+        <div class="eyebrow"><span>Who gets involved</span></div>
+        <h2 class="f-h2 section-heading">Every role matters. Every person belongs.</h2>
+        <p class="section-sub">
+          The Genuine Cup is built by and for an entire community — athletes, volunteers, sponsors, families, and fans who show up because inclusion is the point.
+        </p>
+      </div>
+
+      <div class="involvement-list">
+        <div class="involvement-item reveal d1">
+          <div class="involvement-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div>
+            <h4>Athletes with IDD</h4>
+            <p>Competing at the center of it all — not as a side event, not as an afterthought, but as the whole point. Real competition, real teammates, real recognition.</p>
+          </div>
+        </div>
+
+        <div class="involvement-item reveal d2">
+          <div class="involvement-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div>
+            <h4>Volunteers</h4>
+            <p>From Genuine Connect and the broader community, supporting teams throughout the week — putting the summit's ideas into action on the field.</p>
+          </div>
+        </div>
+
+        <div class="involvement-item reveal d1">
+          <div class="involvement-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          </div>
+          <div>
+            <h4>Sponsors &amp; Partners</h4>
+            <p>Whose presence means something beyond a logo on a banner. Organizations demonstrating meaningful commitment to IDD inclusion in one of its most visible, tangible forms.</p>
+          </div>
+        </div>
+
+        <div class="involvement-item reveal d2">
+          <div class="involvement-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <h4>Families &amp; Community Members</h4>
+            <p>Who show up to cheer, connect, and witness something real — the moment when the people they love are seen for exactly who they are.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sep">
+
+  <!-- ── HOW TO GET INVOLVED ──────────────────────────────── -->
+  <div class="section-wrap--white">
+    <div class="section">
+      <div class="split">
+        <div class="reveal">
+          <div class="eyebrow"><span>How to get involved</span></div>
+          <h2 class="f-h2 section-heading">There's a role here for everyone.</h2>
+          <p class="section-sub" style="margin-bottom:var(--space-3xl);">
+            You can support the Genuine Cup as a volunteer, a sponsor, or simply by being there. Every role matters.
+          </p>
+          <p class="section-sub" style="margin-bottom:var(--space-4xl);">
+            Organizations looking to demonstrate meaningful commitment to IDD inclusion will find the Genuine Cup to be one of the most visible, tangible ways to do it.
+          </p>
+          <a href="#get-involved" class="btn btn-accent">Get Involved →</a>
+        </div>
+
+        <div class="reveal d1">
+          <div style="display:flex;flex-direction:column;gap:var(--space-2xl);">
+            <div class="feat-block">
+              <h4>Volunteer</h4>
+              <p>Support teams and athletes throughout the week. Roles in logistics, team management, athlete support, and event operations.</p>
+            </div>
+            <div class="feat-block">
+              <h4>Sponsor</h4>
+              <p>Align your organization with a real, high-visibility event that demonstrates inclusive values in action — not just in policy.</p>
+            </div>
+            <div class="feat-block">
+              <h4>Attend</h4>
+              <p>Come and watch. Bring your family, your colleagues, your students. Show up and let your presence be part of the change.</p>
+            </div>
+            <div class="feat-block">
+              <h4>Donate</h4>
+              <p>Fund the infrastructure that makes professional-grade competition possible for athletes who deserve it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── INFO CARD + CTA ─────────────────────────────────── -->
+  <div class="section-wrap--dark" id="get-involved">
+    <div class="section">
+      <div class="split" style="align-items:start;">
+        <div class="reveal">
+          <div class="eyebrow eyebrow--light"><span>Event Details</span></div>
+          <h2 class="f-h2 section-heading section-heading--white" style="margin-bottom:var(--space-2xl);">Join Us in Houston.</h2>
+          <p class="section-sub section-sub--white" style="margin-bottom:var(--space-4xl);">
+            Tell us how you'd like to be part of it — we'll connect you with the right opportunity. Whether you're volunteering, sponsoring, attending, or donating, every contribution matters.
+          </p>
+          <a href="#interest-form" class="btn btn-accent">Get Involved →</a>
+        </div>
+
+        <div class="info-card reveal d1">
+          <h3 class="info-card__heading">Event Information</h3>
+          <ul class="info-card__list">
+            <li>
+              <span class="lbl">Dates</span>
+              <span>July 27 – August 1, 2026</span>
+            </li>
+            <li>
+              <span class="lbl">Location</span>
+              <span>Houston, Texas</span>
+            </li>
+            <li>
+              <span class="lbl">Format</span>
+              <span>Multi-day professional team sport competition</span>
+            </li>
+            <li>
+              <span class="lbl">Who</span>
+              <span>Athletes, volunteers, families, sponsors, and the public</span>
+            </li>
+            <li>
+              <span class="lbl">Scale</span>
+              <span>50 countries &nbsp;·&nbsp; 50 teams</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── INTEREST FORM ────────────────────────────────────── -->
+  <div class="section-wrap--white" id="interest-form">
+    <div class="section">
+      <div class="form-wrap">
+        <div class="form-intro reveal">
+          <div class="eyebrow"><span>Get involved</span></div>
+          <h2 class="f-h2 form-intro__heading">Ready for the Genuine Cup?</h2>
+          <p class="form-intro__body">
+            Tell us how you'd like to be part of it — we'll connect you with the right opportunity.
+          </p>
+          <div style="margin-top:var(--space-4xl);">
+            <div style="display:flex;align-items:center;gap:var(--space-lg);">
+              <div style="width:36px;height:36px;border-radius:8px;background:var(--accent-soft);border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <a href="mailto:information@genuinefoundation.org" style="font-size:.88rem;color:var(--text-m);">information@genuinefoundation.org</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-box reveal d1">
+          <form data-form action="#" novalidate>
+            <div class="form__fields-inner">
+              <div class="form__row">
+                <div class="form__field">
+                  <label class="form__label" for="cup-first">First Name</label>
+                  <input class="form__input" type="text" id="cup-first" name="firstName" placeholder="Anna" required>
+                </div>
+                <div class="form__field">
+                  <label class="form__label" for="cup-last">Last Name</label>
+                  <input class="form__input" type="text" id="cup-last" name="lastName" placeholder="Smith" required>
+                </div>
+              </div>
+
+              <div class="form__field">
+                <label class="form__label" for="cup-email">Email Address</label>
+                <input class="form__input" type="email" id="cup-email" name="email" placeholder="you@example.com" required>
+              </div>
+
+              <div class="form__field">
+                <label class="form__label">I'd like to</label>
+                <div class="form__chip-group">
+                  <div class="form__chip">
+                    <input type="radio" name="cup-interest" id="cup-volunteer" value="volunteer" checked>
+                    <label for="cup-volunteer">Volunteer</label>
+                  </div>
+                  <div class="form__chip">
+                    <input type="radio" name="cup-interest" id="cup-sponsor" value="sponsor">
+                    <label for="cup-sponsor">Sponsor</label>
+                  </div>
+                  <div class="form__chip">
+                    <input type="radio" name="cup-interest" id="cup-attend" value="attend">
+                    <label for="cup-attend">Attend</label>
+                  </div>
+                  <div class="form__chip">
+                    <input type="radio" name="cup-interest" id="cup-donate" value="donate">
+                    <label for="cup-donate">Donate</label>
+                  </div>
+                  <div class="form__chip">
+                    <input type="radio" name="cup-interest" id="cup-learn" value="learn">
+                    <label for="cup-learn">Learn more</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form__submit">
+                <button type="submit" class="btn btn-accent">
+                  Send My Interest
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="form__success">
+              <div class="form__success-icon">✓</div>
+              <h3>We'll be in touch.</h3>
+              <p>Thank you for your interest in the Genuine Cup. Our team will connect you with the right opportunity shortly.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ───────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img class="footer__logo" src="The Genuine Foundation Logo White Words.png" alt="Genuine Foundation">
+          <p class="footer__tagline">Expanding opportunity for people with intellectual and developmental disabilities, through sport, education, and community.</p>
+          <a class="footer__contact" href="mailto:information@genuinefoundation.org">information@genuinefoundation.org</a>
+          <div class="footer__social">
+            <a class="footer__social-link" href="https://www.instagram.com/genuinecuphouston/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a class="footer__social-link" href="https://linkedin.com/company/genuineworldcup" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a class="footer__social-link" href="https://www.facebook.com/people/Genuine-World-Cup/61574045041362/?locale=es_ES#" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Programs</h4>
+          <ul>
+            <li><a href="hope-and-opportunity.html">Hope &amp; Opportunity</a></li>
+            <li><a href="genuine-connect.html">Genuine Connect</a></li>
+            <li><a href="genuine-cup.html" class="footer-active">Genuine Cup</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Get Involved</h4>
+          <ul>
+            <li><a href="#interest-form">Volunteer</a></li>
+            <li><a href="#interest-form">Sponsor the Cup</a></li>
+            <li><a href="#interest-form">Attend</a></li>
+            <li><a href="index.html#get-involved">Donate</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Foundation</h4>
+          <ul>
+            <li><a href="index.html">Homepage</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">genuinefoundation.org</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer__sep">
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Genuine Foundation. All rights reserved.</p>
+        <nav class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    (function(){
+      document.querySelectorAll('[data-carousel]').forEach(function(el){
+        var track = el.querySelector('.carousel__track');
+        var slides = el.querySelectorAll('.carousel__slide');
+        var dotsEl = el.querySelector('.carousel__dots');
+        var n = slides.length, cur = 0, timer;
+        if(!n) return;
+        slides.forEach(function(_,i){
+          var d = document.createElement('button');
+          d.className = 'carousel__dot' + (i===0?' active':'');
+          d.setAttribute('aria-label','Slide '+(i+1));
+          d.addEventListener('click', function(){ go(i); reset(); });
+          dotsEl.appendChild(d);
+        });
+        function go(idx){
+          cur = (idx+n)%n;
+          track.style.transform = 'translateX(-'+(cur*100)+'%)';
+          el.querySelectorAll('.carousel__dot').forEach(function(d,i){ d.classList.toggle('active',i===cur); });
+        }
+        function reset(){ clearInterval(timer); timer = setInterval(function(){ go(cur+1); },5000); }
+        el.querySelector('.carousel__btn--prev').addEventListener('click', function(){ go(cur-1); reset(); });
+        el.querySelector('.carousel__btn--next').addEventListener('click', function(){ go(cur+1); reset(); });
+        var sx=0;
+        el.addEventListener('touchstart',function(e){ sx=e.touches[0].clientX; },{passive:true});
+        el.addEventListener('touchend',function(e){
+          var dx=e.changedTouches[0].clientX-sx;
+          if(Math.abs(dx)>40){ go(dx<0?cur+1:cur-1); reset(); }
+        },{passive:true});
+        reset();
+      });
+    })();
+  </script>
+</body>
+</html>
