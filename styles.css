@@ -1416,6 +1416,70 @@ body.cursor-hover .cursor-ring { width: 52px; height: 52px; opacity: .35; }
 body.cursor-hover .cursor-dot  { width: 0; height: 0; opacity: 0; }
 
 /* ------------------------------------------------------------
+   21. COMING SOON MODAL
+   ------------------------------------------------------------ */
+.cs-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 12, 25, .65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+.cs-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.cs-modal__card {
+  background: #F5C100;
+  border-radius: 20px;
+  max-width: 380px;
+  width: 88%;
+  padding: 2.5rem 2rem 2rem;
+  text-align: center;
+  transform: translateY(18px) scale(.96);
+  transition: transform .35s cubic-bezier(.34, 1.56, .64, 1);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, .45);
+}
+.cs-modal.open .cs-modal__card {
+  transform: translateY(0) scale(1);
+}
+.cs-modal__heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0B1528;
+  margin-bottom: .5rem;
+  line-height: 1.2;
+}
+.cs-modal__sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  color: rgba(11, 21, 40, .65);
+  margin-bottom: 1.75rem;
+  letter-spacing: .02em;
+}
+.cs-modal__close {
+  background: #0B1528;
+  color: #F5C100;
+  border: none;
+  border-radius: 10px;
+  padding: .65rem 1.75rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity .2s ease;
+}
+.cs-modal__close:hover { opacity: .82; }
+
+/* ------------------------------------------------------------
    21. ANIMATIONS & KEYFRAMES
    ------------------------------------------------------------ */
 @keyframes orbDrift {

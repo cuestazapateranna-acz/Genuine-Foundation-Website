@@ -152,12 +152,46 @@
   /* ── Smooth scroll for anchor links ───────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
+      const href = a.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
+
+  /* ── Coming Soon Modal ─────────────────────────────────── */
+  (function () {
+    const modal = document.createElement('div');
+    modal.className = 'cs-modal';
+    modal.id = 'csModal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Coming Soon');
+    modal.innerHTML = [
+      '<div class="cs-modal__card">',
+      '  <div class="cs-modal__heading">We\'re working on this</div>',
+      '  <div class="cs-modal__sub">Coming soon</div>',
+      '  <button class="cs-modal__close" id="csModalClose">Got it</button>',
+      '</div>'
+    ].join('');
+    document.body.appendChild(modal);
+
+    function openCS()  { modal.classList.add('open');    document.body.style.overflow = 'hidden'; }
+    function closeCS() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+
+    document.getElementById('csModalClose').addEventListener('click', closeCS);
+    modal.addEventListener('click', e => { if (e.target === modal) closeCS(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCS(); });
+
+    document.querySelectorAll('a[href="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        openCS();
+      });
+    });
+  })();
 
 })();
